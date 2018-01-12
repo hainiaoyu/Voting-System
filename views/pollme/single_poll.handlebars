@@ -1,0 +1,200 @@
+<center>
+    <div class="home-before">
+        {{#if error}}
+        <div class="alert-danger" name="alert-danger">{{error}}</div>
+        <br><br> {{/if}}
+        {{#if auth}}
+<div id="show-comments">
+    <table>
+        <tr>
+             {{#if poll.vote}}
+             {{else}}
+            <td class="editdelete">
+               
+                <form role="form" id="edit-poll" method="post" action="/editpollpage">
+                    <input type="hidden" name="pollid" value="{{poll.poll._id}}">
+                    <input type="submit" class="submit-comment" value="Edit Poll">
+                </form>
+            </td>
+            {{/if}}
+            <td class="editdelete">
+                <form role="form" id="delete-poll" method="post" action="/deleteconfirm">
+                    <input type="hidden" name="pollid" value="{{poll.poll._id}}">
+                    <input type="submit" class="submit-comment" value="Delete Poll">
+                </form>
+                </td>
+        </tr>
+    </table>
+</div>
+<br>
+<br>
+
+{{/if}}
+        <table>
+            <tr>
+                <td valign="top">
+                    <div class="fb-share-button" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.google.com%2F&amp;src=sdkpreparse">Share</a></div>
+                </td>
+                <td valign="top">
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Vote%20in%20this%20poll!" data-size="large">Tweet</a>
+                </td>
+                <td valign="top">
+                    <div class="g-plus" data-annotation="bubble" data-action="share" data-height="34"></div>
+                </td>
+            </tr>
+        </table>
+
+
+        <div id="poll-question">{{poll.poll.question}}</div><br> {{#if poll.vote}}
+        <div id="votes-total">{{poll.vote.totalVotesForPoll}} Votes</div><br>
+
+        <table class="poll-table-2">
+            <thead>
+                <tr class="row-title">
+                    <th></th>
+                    <th class="table-head">{{poll.poll.ansChoice1}}</th>
+                    <th class="table-head">{{poll.poll.ansChoice2}}</th>
+                    <th class="table-head">{{poll.poll.ansChoice3}}</th>
+                    <th class="table-head">{{poll.poll.ansChoice4}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-head">Total</td>
+                    <td class="table-body">{{poll.vote.ansChoice1.totalVotes}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice2.totalVotes}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice3.totalVotes}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice4.totalVotes}}</td>
+                </tr>
+                <tr>
+                    <td class="table-head">Male</td>
+                    <td class="table-body">{{poll.vote.ansChoice1.totalVotesMale}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice2.totalVotesMale}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice3.totalVotesMale}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice4.totalVotesMale}}</td>
+                </tr>
+                <tr>
+                    <td class="table-head">Female</td>
+                    <td class="table-body">{{poll.vote.ansChoice1.totalVotesFemale}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice2.totalVotesFemale}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice3.totalVotesFemale}}</td>
+                    <td class="table-body">{{poll.vote.ansChoice4.totalVotesFemale}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        {{else}}
+        <div id="votes-total">0 Votes</div><br>
+
+        <table class="poll-table-2">
+            <thead>
+                <tr class="row-title">
+                    <th></th>
+                    <th class="table-head">{{poll.poll.ansChoice1}}</th>
+                    <th class="table-head">{{poll.poll.ansChoice2}}</th>
+                    <th class="table-head">{{poll.poll.ansChoice3}}</th>
+                    <th class="table-head">{{poll.poll.ansChoice4}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-head">Total</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                </tr>
+                <tr>
+                    <td class="table-head">From Male</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                </tr>
+                <tr>
+                    <td class="table-head">From Female</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                    <td class="table-body">0</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        {{/if}}
+
+        <form role="form" id="vote-on-poll" method="post" action="/voteonpoll">
+            <br>
+            <h3 class="ask">Which do you vote for?</h3><br>
+            <table>
+                <tr>
+                    <td align="left">
+                        <input type="radio" id="choice1" name="selector" value="choice1" checked/>
+                        <label class="choice-info" for="choice1">{{poll.poll.ansChoice1}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <input type="radio" id="choice2" name="selector" value="choice2">
+                        <label class="choice-info" for="choice2">{{poll.poll.ansChoice2}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <input type="radio" id="choice3" name="selector" value="choice3">
+                        <label class="choice-info" for="choice3">{{poll.poll.ansChoice3}}</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <input type="radio" id="choice4" name="selector" value="choice4">
+                        <label class="choice-info" for="choice4">{{poll.poll.ansChoice4}}</label><br>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="pollid" id="pollid" value="{{poll.poll._id}}">
+            <input type="hidden" name="userid" id="userid" value="{{poll.user._id}}">
+            <input type="hidden" name="gender" id="gender" value="{{poll.user.gemder}}">
+            <br>
+            <input type="submit" class="submit-comment" value="Submit">
+        </form>
+
+        <div id="show-comments"><br>
+            <table class="comment-table">
+                <tr style="background: white;">
+<td>
+    <h2>Comments:</h2>
+</td>
+</tr>
+{{#each poll.poll.comments}}
+<tr>
+    <td align="left">
+        <b>Poster:</b> {{this.poster}}
+    </td>
+</tr>
+<tr>
+    <td align="left">
+        <b>Comment:</b> {{this.comment}}
+        <hr>
+    </td>
+</tr>
+
+<br> {{/each}}
+</table>
+</div>
+
+
+<form role="form" id="post-comment" method="post" action="/commentonpoll">
+    <h3 class="ask">What's on your mind?</h3><br>
+    <textarea class="comment-post" id="comment-post" name="comment"></textarea><br>
+    <input type="hidden" name="pollid" value="{{poll.poll._id}}">
+    <input type="hidden" name="poster" value="{{poll.user._id}}">
+    <input type="submit" class="submit-comment" value="Submit">
+</form>
+<br>
+<br> 
+
+</div>
+
+</center>

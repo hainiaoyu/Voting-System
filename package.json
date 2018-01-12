@@ -1,0 +1,32 @@
+{
+  "name": "pollme",
+  "version": "1.0.0",
+  "description": "This is the group project for CS 546 Web Programming I\nGroup Members: Patrick Hill Yasuo Kobayashi Haoyang Li Seito Ryu Jason Sarwar",
+  "main": "app.js",
+  "scripts": {
+    "seed": "node ./tasks/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.14.2",
+    "handlebars": "^4.0.5",
+    "mongodb": "^2.2.11",
+    "node-uuid": "^1.4.7",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "req-flash": "0.0.3",
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1",
+    "uuid": "^2.0.3",
+    "xss": "^0.3.2"
+  }
+}

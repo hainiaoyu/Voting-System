@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Poll Me</title>
+    <link rel="stylesheet" href="/public/css/new.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,, user-scalable=0"/>
+</head>
+<div id="fb-root"></div>
+
+<body>
+    <div class="logo" >
+        <a href="/">PollMe</a>
+    </div>
+    <center>
+        <img alt="hands3.png" class="test123" src="/public/css/images/hands3.png"  role="banner"/>
+
+
+
+    </center>
+    <div id='cssmenu' role="navigation">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/createpoll">Create Poll</a></li>
+            {{#if loginuser}}
+            <li><a class='has-sub' href="#">My Account</a>
+                <ul class="dl-submenu">
+                    <li><a href="/mypolls">My Polls</a></li>
+                    <li><a href="/editprofile">Edit Profile</a></li>
+                    <li class='last'><a href="/logout">Log Out</a></li>
+                </ul>
+            </li>
+            {{else}}
+            <li><a href="/login">Login/Sign Up</a></li>
+            {{/if}}
+
+        </ul>
+    </div>
+    <br>
+
+    <div align="right">
+        <form role="form" action="/search" method="POST">
+            <input id="search-button" type="submit" value="Search">
+            <select id="category" name="category">
+            <option value="null">--Select Category--</option>
+            <option value="Arts">Arts</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Business&Finance">Business & Finance</option>
+            <option value="Education">Education</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Food">Food</option>
+            <option value="Health">Health</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Movies">Movies</option>
+            <option value="Music">Music</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Politics">Politics</option>
+            <option value="Science">Science</option>
+            <option value="Sports">Sports</option> 
+            <option value="Technology">Technology</option>
+            <option value="Travel">Travel</option>
+            <option value="TV">TV</option>
+            <option value="Other">Other</option>
+            
+        </select>
+            <input id="keyword" type="text" name="keyword" id="keyword" placeholder="Search by keyword...">
+            <label id="searchlabel" for="keyword">Search Polls by keyword and/or category:&nbsp&nbsp</label>
+
+
+        </form>
+    </div>
+
+
+
+
+
+
+    <main class="container">
+        <div class="row">
+        <div class="col-sm-12" 	role="main">
+
+            {{{body}}}
+        </div>
+        </div>
+    </main>
+    <footer role="contentinfo">
+        <div class="copyright">
+            <p>&copy; PollMe Team || Patrick Hill | Yasuo Kobayashi | Haoyang Li | Seito Ryu | Jason Sarwar</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/public/js/login_signup.js"></script>
+    <script type="text/javascript" src="/public/js/social.js"></script>
+    <script type="text/javascript" src="/public/js/menu.js"></script>
+   
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+
+</html>

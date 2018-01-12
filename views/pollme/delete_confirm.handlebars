@@ -1,0 +1,23 @@
+<center>
+    <div class="home-before">
+        <label>Delete Poll?</label>
+        <div id="show-comments">
+            <table>
+                <tr>
+                    <td class="editdelete">
+                        <form method="post" action="/deletepoll">
+                            <input type="hidden" name="pollid" value="{{pollid}}">
+                            <input class="submit-comment" type="submit" value="Yes">
+                        </form>
+                    </td>
+                    <td class="editdelete">
+                        <form method="link" action="/poll/{{pollid}}">
+                            <input class="submit-comment" type="submit" value="No">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</center>

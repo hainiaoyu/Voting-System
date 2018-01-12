@@ -1,0 +1,29 @@
+<center>
+    <div class="home-before">
+        <h3 id="mypoll-heading">Polls</h3>
+        <table class="poll-table">
+            <thead>
+                <tr>
+                    <th class="table-head">Question</th>
+                    <th class="table-head">Category</th>
+                    <th class="table-head">Date</th>
+                    <th class="table-head">Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each poll}}
+                <tr>
+                    <td align="left" class="table-body"><a class="track-single" href="/poll/{{_id}}">{{question}}</a></td>
+                    <td align="center" class="table-body">{{category}}</td>
+                    <td align="left" class="table-body">{{postedDate}}</td>
+                    <td align="center" class="table-body">{{votes}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</center>
